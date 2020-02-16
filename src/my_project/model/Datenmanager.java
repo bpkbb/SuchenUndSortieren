@@ -32,7 +32,18 @@ public class Datenmanager {
      * @param t
      */
     public void bubbleSort(Token[] t){
-        //todo Implementieren. Hilfestellungen finden sich im Buch und im Internet.
+        if (t != null) {
+            Token tmp;
+            for (int i = 1; i < t.length; i++) {
+                for (int j = 0; j < t.length-i; j++){
+                    if (t[j].getPrimaryKey()>t[j+1].getPrimaryKey()){
+                        tmp = t[j];
+                        t[j] = t[j+1];
+                        t[j+1] = tmp;
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -40,7 +51,21 @@ public class Datenmanager {
      * @param t
      */
     public void selectionSort(Token[] t){
-        //todo Implementieren. Hilfestellungen finden sich im Buch und im Internet.
+        if (t != null){
+            int indexMin;
+            Token tmp;
+            for (int i = 0; i < t.length; i++){
+                indexMin = i;
+                for (int j = i+1; j < t.length; j++){
+                    if (t[indexMin].getPrimaryKey() > t[j].getPrimaryKey()){
+                        indexMin = j;
+                    }
+                }
+                tmp = t[i];
+                t[i] = t[indexMin];
+                t[indexMin] = tmp;
+            }
+        }
     }
 
     /**
@@ -48,7 +73,18 @@ public class Datenmanager {
      * @param t
      */
     public void insertionSort(Token[] t){
-        //todo Implementieren. Hilfestellungen finden sich im Buch und im Internet.
+        if (t != null){
+            Token tmp;
+            for (int i = 0; i < t.length; i++){
+                int j = i;
+                while(j > 0 && t[j].getPrimaryKey() < t[j-1].getPrimaryKey()){
+                    tmp =t[j-1];
+                    t[j-1] = t[j];
+                    t[j] = tmp;
+                    j--;
+                }
+            }
+        }
     }
 
     /**
